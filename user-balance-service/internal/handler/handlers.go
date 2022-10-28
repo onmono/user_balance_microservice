@@ -219,8 +219,6 @@ func (h *BalanceHandler) DepositOrDebitBalance(w http.ResponseWriter, r *http.Re
 		return
 	}
 	if v, ok := data["deposit"]; ok {
-		o := uuid.New()
-		fmt.Printf("%s\n", o)
 		id, err := convert.GetUUIDFromMap(data["user_id"])
 
 		if err != nil {
