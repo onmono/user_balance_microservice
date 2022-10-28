@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  user-balance-service:
+    build:
+      context: ../user-balance-service
+      dockerfile: ../user-balance-service/user-balance-service.dockerfile
+    restart: always
+    ports:
+      - "8080:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_DATABASE: balances
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USERNAME: postgresql
+      POSTGRES_PASSWORD: password
+
+  postgres:
+    image: 'postgres:14.0'
+    ports:
+      - "5432:5432"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: postgresql
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: balances
+    volumes:
+      - ./db-data/postgresql/:/var/lib/postgresql/data/

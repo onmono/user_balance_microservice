@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "d6423d85-3dd6-442d-9856-9e86bc650223",
+		"name": "Test API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17949940"
+	},
+	"item": [
+		{
+			"name": "GET BALANCE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"1531aec1-2a7a-4cc1-b1a1-01e8bfe91a82\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEBIT (Снять)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1531aec1-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"debit\":1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEPOSIT (Внести)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"1531aec1-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"deposit\":1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TRANSFER (Перевести)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from_id\":\"1531aec4-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"to_id\":\"5531aec4-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"money\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/money/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"money",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PING",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RESERVE (Резервация)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Forwarded-For",
+						"value": "0.0.0.0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"user_id\":\"1531aec1-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"service_id\":\"2531aec2-2a7a-4cc1-b1a1-01e8bfe91a82\", \r\n    \"order_id\":\"3531aec2-2a7a-4cc1-b1a1-01e8bfe91a82\", \r\n    \"price\":100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accounting/reserve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accounting",
+						"reserve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REVENUE (Признания выручки)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"user_id\":\"1531aec1-2a7a-4cc1-b1a1-01e8bfe91a82\",\r\n    \"service_id\":\"2531aec2-2a7a-4cc1-b1a1-01e8bfe91a82\", \r\n    \"order_id\":\"3531aec2-2a7a-4cc1-b1a1-01e8bfe91a82\", \r\n    \"sum\":100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accounting/revenue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accounting",
+						"revenue"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
